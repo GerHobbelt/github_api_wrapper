@@ -55,9 +55,10 @@
       xhr.setRequestHeader('Accept','application/vnd.github.raw');
       xhr.setRequestHeader('Content-Type','application/json');
       if (
+         options && (
          (options.auth == 'oauth' && options.token) ||
          (options.auth == 'basic' && options.username && options.password)
-         ) {
+         )) {
            xhr.setRequestHeader('Authorization',options.auth == 'oauth'
              ? 'token '+ options.token
              : 'Basic ' + Base64.encode(options.username + ':' + options.password)
@@ -167,6 +168,12 @@
       var currentTree = {
         "branch": null,
         "sha": null
+      };
+
+      this.repos = function(username, cb) {
+        _request("GET", "/users/" + username + "/repos?type=all&sort=updated", null, function(err, res) {
+          cb(err, res);
+        });
       };
 
       // Uses the cache if branch has not been changed
