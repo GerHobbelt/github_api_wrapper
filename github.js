@@ -234,6 +234,10 @@
         _request("DELETE", "/user/starred/" + user + "/" + repo, null, cb);
       };
 
+      this.isStarred = function(cb) {
+        _request("GET", "/user/starred/" + user + "/" + repo, null, cb);
+      }
+
       // Delete a repo
       // --------
 
