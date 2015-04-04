@@ -1,8 +1,8 @@
 {
-  "name": "github-api",
+  "name": "github-api2",
   "main": "github.js",
-  "version": "0.10.6",
-  "homepage": "https://github.com/michael/github",
+  "version": "0.0.1",
+  "homepage": "https://github.com/lavelle/github",
   "authors": [
     "Sergey Klimov <sergey.v.klimov@gmail.com> (http://darvin.github.com/)"
   ],
