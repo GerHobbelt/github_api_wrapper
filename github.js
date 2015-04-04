@@ -226,6 +226,13 @@
         "sha": null
       };
 
+      this.star = function(cb) {
+        _.request("PUT", "/user/starred/" + user "/" + repo, null, cb);
+      };
+
+      this.unstar = function(cb) {
+        _.request("DELETE", "/user/starred/" + user "/" + repo, null, cb);
+      };
 
       // Delete a repo
       // --------
