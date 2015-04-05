@@ -238,6 +238,10 @@
         _request("GET", "/user/starred/" + user + "/" + repo, null, cb);
       }
 
+      this.update = function(data, cb) {
+        _request("PATCH", "/repos/" + user + "/" + repo, data, cb);
+      }
+
       // Delete a repo
       // --------
 
