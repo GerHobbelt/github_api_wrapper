@@ -638,12 +638,19 @@
       // Write file contents to a given branch and path
       // -------
 
-      this.write = function(branch, path, content, message, cb) {
+      this.write = function(branch, path, content, message, cb, isEncoded) {
+        if (isEncoded) {
+          content = btoa(content);
+        }
+
         that.getSha(branch, path, function(err, sha) {
-          if (err && err.error!=404) return cb(err);
+          if (err && err.error !== 404) {
+            return cb(err);
+          }
+
           _request("PUT", repoPath + "/contents/" + path, {
             message: message,
-            content: btoa(content),
+            content: content,
             branch: branch,
             sha: sha
           }, cb);
