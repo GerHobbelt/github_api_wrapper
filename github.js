@@ -639,7 +639,7 @@
       // -------
 
       this.write = function(branch, path, content, message, cb, isEncoded) {
-        if (isEncoded) {
+        if (!isEncoded) {
           content = btoa(content);
         }
 
